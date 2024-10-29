@@ -1,0 +1,76 @@
+body{
+    background-color: #ebe9e9;
+}
+button{
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(26, 161, 252);
+    color: white;
+    border-radius: 5px;
+}
+input{
+    border-radius: 5px;
+    background-color: rgb(26, 161, 252);
+    width: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    height: 30px;
+    border:none;
+}
+input:focus{
+    outline: none;
+}
+.streaks{
+    overflow-y: auto;
+    width: 220px;
+    text-align: left;
+    border-radius: 5px;
+    margin-top: 25px;
+    background-color: rgb(121, 121, 121);
+    height: 400px;
+    padding: 25px;
+    color: white;
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.streaks::-webkit-scrollbar{
+    width: 5px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-right: 5px ;
+    transform: translateX(-5px);
+}
+.streaks::-webkit-scrollbar-thumb{
+    width: 2px;
+    background-color: rgb(94, 103, 110);
+    border-radius: 5px;
+    margin-right: 5px ;
+    border:1px solid aliceblue;
+}
+.timer{
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.themeButton{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color:#213547 ;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+img{
+    width: 40px;
+    margin: 0;
+    padding: 0;
+}
