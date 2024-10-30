@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import style from './ThemeChangeButton.module.css'
-import moonBackground from '../assets/cozyBackground.jpg'
-import sunBackground from '../assets/sunBackground.jpg'
+import moonBackground from '/testpom/assets/cozybackground.jpg'
+import sunBackground from '/testpom/assets/sunBackground.jpg'
 import sunIcon from '../assets/sun.png'
 import moonIcon from '../assets/moon.png'
 function ThemeChangeButton() {
