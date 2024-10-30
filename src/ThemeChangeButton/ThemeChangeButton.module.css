@@ -1,0 +1,17 @@
+.themeButton{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color:black ;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+.themeButton:hover{
+   background-color: rgb(25, 117, 238)
+}
+img{
+    width: 40px;
+    margin: 0;
+    padding: 0;
+}

@@ -1,5 +1,6 @@
 body{
-    background-color: #ebe9e9;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
 }
 button{
     margin: 5px;
@@ -8,36 +9,49 @@ button{
     border: none;
     font-size: 16px;
     font-weight: bold;
-    background-color: rgb(26, 161, 252);
+    background-color: rgba(38,38,186,1);
     color: white;
     border-radius: 5px;
+    transition: 0.2s;
+}
+button:hover{
+    background-color:rgb(62, 62, 184) ;
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 input{
     border-radius: 5px;
-    background-color: rgb(26, 161, 252);
+    background-color: rgba(38,38,186,1);
     width: 150px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     height: 30px;
     border:none;
 }
 input:focus{
     outline: none;
+    background-color:rgb(43, 43, 201) ;
+}
+li{
+    border-bottom: 2px solid rgba(245, 245, 220, 0.281);
 }
 .streaks{
     overflow-y: auto;
-    width: 220px;
+    width: 270px;
     text-align: left;
     border-radius: 5px;
     margin-top: 25px;
-    background-color: rgb(121, 121, 121);
+    background: rgb(8,6,38);
+    background: linear-gradient(166deg, rgba(8,6,38,1) 0%, rgba(38,38,186,1) 36%, rgba(98,228,255,1) 100%);
     height: 400px;
-    padding: 25px;
+    padding: 15px;
     color: white;
-    font-size: 14px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+    font-size: 18px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
 .streaks::-webkit-scrollbar{
     width: 5px;
     background-color: aliceblue;
@@ -52,25 +66,59 @@ input:focus{
     margin-right: 5px ;
     border:1px solid aliceblue;
 }
+.clearStreak{
+  background-color:  rgb(46, 163, 187)
+}
+.clearStreak:hover{
+    background-color: rgb(35, 125, 143) ;
+}
 .timer{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 50px;
+    height: 600px;
 }
 ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.themeButton{
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    background-color:#213547 ;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-}
-img{
-    width: 40px;
+h1{
+    font-size: 50px;
     margin: 0;
     padding: 0;
+    line-height: 50px;
+    margin: 25px;
+}
+.buttons{
+    margin-bottom: 20px;
+}
+select{
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(38,38,186,1);
+    border: none;
+    height: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+select:focus{
+    outline: none;
+    background-color:rgb(45, 45, 165) ;
+}
+option{
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+select>option:focus{
+    cursor: pointer;
+    border: none;
+    outline: none;
 }

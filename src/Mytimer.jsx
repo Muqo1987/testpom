@@ -1,19 +1,15 @@
 import React, {useEffect, useState, useRef} from 'react'
 import style from './Timer.module.css'
-import sunIcon from './assets/sun.png'
-import moonIcon from './assets/moon.png'
+import ThemeChangeButton from './ThemeChangeButton/ThemeChangeButton'
+import sound from './assets/a.wav'
 function Mytimer(props) {
-    let pos=60;
-    let elem;
-    let sayac=0;
+    let audio = new Audio(sound);
     const [dk,setDk] = useState(0);
-    const [icon,setIcon]=useState(moonIcon);
-    const [dark,setDark]=useState(false);
+    const [work,setWork] = useState("Work");
     const [finishes,setFinishes] = useState([]);
-    const [minute,setMinute] = useState(5);
+    const [minute,setMinute] = useState(50);
     const [second,setSecond] = useState(0);
     const [isPomodoro,setPomodoro] = useState(false);
-    const animationID= useRef(null)
     let intervalID = useRef(null);
     useEffect(()=> {
         intervalID.current = setInterval(() => {
@@ -26,8 +22,10 @@ function Mytimer(props) {
         if(!isPomodoro) setMinute(document.getElementById("a").value)
     }
     function start() {
+        if(!(minute<=0)){
         setPomodoro(true)
         setDk(document.getElementById("a").value);
+        }
     }
     function stop() {
         setPomodoro(false)
@@ -43,32 +41,6 @@ function Mytimer(props) {
 
         return dakika+":"+saniye
     }
-    function clearArray() {
-            setFinishes([])
-        
-    }
-    function darkMode() {
-        document.getElementById("theme-button").style.backgroundColor="#ebe9e9"
-        document.body.style.backgroundColor="#213547"
-        document.getElementById("hbir").style.color="#ebe9e9"
-        setIcon(sunIcon)
-    }
-    function lightMode() {
-        setIcon(moonIcon)
-        document.getElementById("theme-button").style.backgroundColor="#213547"
-        document.body.style.backgroundColor="#ebe9e9"
-        document.getElementById("hbir").style.color="#213547"
-    }
-    function themeChangeHandler() {
-        if(!dark){
-            darkMode()
-            setDark(true)
-        }
-        else{
-            lightMode()
-            setDark(false)
-        }
-    }
     function timer() {
         if(isPomodoro){
             if(!second<=0){
@@ -77,36 +49,52 @@ function Mytimer(props) {
             else if(minute!=0)
                 {setSecond(59);setMinute(minute-1)}
             else{
+                audio.play();
                 reset()
                 setPomodoro(false)
-                setFinishes([...finishes,dk]);
-                console.log(finishes)
+                setFinishes([...finishes,{süre:dk,iş:work}]);
+                console.log(finishes,work)
             }
         }
     }
-     
+    function clearArray() {
+            setFinishes([])
+        
+    }
+    function getWork() {
+            setWork(document.querySelector('#b').value);  
+    }
     return(
     <>
     <div id="hbir" className={style.timer}>
-        <h1 className={style.hbir}>{timeFormat()}</h1>
-        <button className={style.startButton} onClick={start} >Start</button>
-        <button className={style.resetButton} onClick={reset} >Reset</button>
-        <button className={style.stopButton} onClick={stop}  >Stop</button>
-        <br /> <br />
-        <label htmlFor="">
-        Minute: &nbsp;
-        <input id="a" type="number" defaultValue={5} onChange={changeMinute}/>
-        </label>
+        <div>
+            <h1 className={style.hbir}>{timeFormat()}</h1>
+        </div>
+
+        <div className={style.buttons}>
+            <button className={style.startButton} onClick={start} >Start</button>
+            <button className={style.resetButton} onClick={reset} >Reset</button>
+            <button className={style.stopButton} onClick={stop}  >Stop</button>
+        </div>
+
+        <div>
+            <label htmlFor="">
+            Minute: &nbsp;
+            <input id="a" type="number" defaultValue={50} onChange={changeMinute}/>
+            </label>
+            <select id="b" defaultValue="Work" onChange={()=>getWork()}>
+                <option value="Work">Work</option>
+                <option value="Break">Break</option>
+            </select>
+        </div>
+        <div className={style.streaks}>
+            <ul>
+                {finishes.map((deger)=><li>You are done a {deger.süre} minutes {deger.iş} session! {deger.iş == "Work" ? "📚" : "😴"  }</li>)}
+            </ul>
+        </div>
+            <button className={style.clearStreak} onClick={()=> clearArray()} >Clear Streaks</button>
     </div>
-    <div className={style.streaks}>
-        <ul>
-            {finishes.map((deger)=><li>You are done a {deger} minutes session!</li>)}
-        </ul>
-    </div>
-    <button onClick={()=> clearArray()} >Clear Streaks</button>
-    <button onClick={()=>themeChangeHandler()} id="theme-button" className={style.themeButton}>
-        <img src={icon} alt="" />
-    </button>
+    <ThemeChangeButton/>
     </>
     );
 }
