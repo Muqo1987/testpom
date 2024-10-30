@@ -18,7 +18,7 @@ function Mytimer(props) {
     useEffect(()=> {
         intervalID.current = setInterval(() => {
         timer()                     
-    }, 10);
+    }, 1000);
         return() => {clearInterval(intervalID.current)};
 
                     },[second, isPomodoro])

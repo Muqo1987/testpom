@@ -1,13 +1,13 @@
 {
-  "homepage": "http://muqo1987.github.io/mypomodoro.github.io",
+  "homepage": "https://muqo1987.github.io/mypomodoro.github.io",
   "name": "mypomodoro",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
