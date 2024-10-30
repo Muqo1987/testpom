@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import style from './Timer.module.css'
 import ThemeChangeButton from './ThemeChangeButton/ThemeChangeButton'
-import sound from './assets/a.wav'
+import sound from 'assets/a.wav'
 function Mytimer(props) {
     let audio = new Audio(sound);
     const [dk,setDk] = useState(0);
